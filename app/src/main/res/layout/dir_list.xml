@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dir_list_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dir_list_view"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:divider="#555"
+        android:listSelector="@drawable/list_item_selector"
+        android:dividerHeight="1dp"
+        android:childDivider="#555"
+        android:groupIndicator="@null"/>
+
+</FrameLayout>

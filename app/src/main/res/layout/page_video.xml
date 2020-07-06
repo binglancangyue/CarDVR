@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/preview_parent">
+
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/video_preview"
+            android:visibility="invisible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/video_black"
+            android:background="#444" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/no_signal"
+            android:id="@+id/no_signal_str"
+            android:layout_gravity="center"
+            android:textSize="50sp"
+            android:textColor="#08B" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#8222"
+            android:id="@+id/select_video_key"
+            android:visibility="gone">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ch1"
+                android:id="@+id/button_ch1"
+                android:background="@null"
+                android:textColor="@drawable/select_video_text_color_selector"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ch2"
+                android:id="@+id/button_ch2"
+                android:layout_weight="1"
+                android:textColor="@drawable/select_video_text_color_selector"
+                android:background="@null"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ch3"
+                android:id="@+id/button_ch3"
+                android:layout_weight="1"
+                android:background="@null"
+                android:textColor="@drawable/select_video_text_color_selector"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ch4"
+                android:id="@+id/button_ch4"
+                android:textColor="@drawable/select_video_text_color_selector"
+                android:background="@null"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/take_pic_btn"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/take_pic_selector" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recording_btn"
+        android:src="@drawable/recording_selector"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/recording_disp"
+        android:background="@mipmap/recording_time_bg"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/recording_state_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/recording_time"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+</FrameLayout>

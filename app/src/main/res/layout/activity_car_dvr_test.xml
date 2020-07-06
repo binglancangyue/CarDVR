@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_camera"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dvrLayoutMargin"
+    android:layout_marginBottom="@dimen/dvrLayoutMargin">
+
+    <FrameLayout
+        android:id="@+id/preview_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/video_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/video_black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#444" />
+
+        <TextView
+            android:id="@+id/no_signal_str"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_signal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#08B"
+            android:textSize="50sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/recording_disp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/recordingTimeMargin"
+        android:background="@mipmap/recording_time_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="6dp"
+            android:src="@mipmap/recording_state_icon" />
+
+        <TextView
+            android:id="@+id/recording_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/recordingTimeTextSize" />
+    </LinearLayout>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/color_transparent50"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_recording_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/my_ic_recording"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_recording_time"
+            style="@style/camera_status_text_view_style" />
+
+        <TextView
+            android:id="@+id/tv_speed"
+            style="@style/camera_status_text_view_style"
+            android:text="0km/h" />
+
+        <TextClock
+            style="@style/camera_status_text_view_style"
+            android:format12Hour="yyyy-MM-dd HH:mm:ss"
+            android:format24Hour="yyyy-MM-dd HH:mm:ss"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="5dp"
+        android:background="@color/colorBlack"
+        android:visibility="gone">
+
+        <SurfaceView
+            android:id="@+id/video_back_preview"
+            android:layout_width="@dimen/smallSurfaceViewWidth"
+            android:layout_height="@dimen/smallSurfaceViewHeight"
+            android:layout_margin="1px" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:divider="@drawable/shape_horizontal_divider"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+        <LinearLayout style="@style/camera_btn_style">
+
+            <ImageView
+                android:id="@+id/btn_lock"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/selector_sos" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/camera_btn_style">
+
+            <ImageView
+                android:id="@+id/btn_take_picture"
+                style="@style/cameraBtnStyle"
+                android:src="@drawable/selector_photograph" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/camera_btn_style">
+
+            <ImageView
+                android:id="@+id/btn_record"
+                style="@style/cameraBtnStyle"
+                android:src="@drawable/selector_record" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/camera_btn_style">
+
+            <ImageView
+                android:id="@+id/btn_adas"
+                style="@style/cameraBtnStyle"
+                android:src="@drawable/selector_btn_adas" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/camera_btn_style">
+
+            <ImageView
+                android:id="@+id/btn_microphone"
+                style="@style/cameraBtnStyle"
+                android:src="@drawable/selector_voice_record" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/camera_btn_style">
+
+            <ImageView
+                android:id="@+id/btn_settings"
+                style="@style/cameraBtnStyle"
+                android:src="@drawable/selector_setting" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

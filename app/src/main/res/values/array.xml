@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="channel_items_2">
+        <item>@string/channel1</item>
+        <item>@string/channel2</item>
+    </string-array>
+    <string-array name="channel_items_3">
+        <item>@string/channel1</item>
+        <item>@string/channel2</item>
+        <item>@string/channel3</item>
+    </string-array>
+    <string-array name="channel_items_4">
+        <item>@string/channel1</item>
+        <item>@string/channel2</item>
+        <item>@string/channel3</item>
+        <item>@string/channel4</item>
+    </string-array>
+</resources>

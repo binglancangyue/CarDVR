@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="popup_window_anim_style">
+        <item name="android:windowEnterAnimation">@anim/popup_window_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_window_out</item>
+    </style>
+
+
+    <style name="TranslucentTheme" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="camera_btn_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="cameraBtnStyle">
+        <item name="android:layout_height">@dimen/cameraBtnWidth</item>
+        <item name="android:layout_width">@dimen/cameraBtnWidth</item>
+    </style>
+
+    <style name="camera_status_text_view_style">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:textSize">30sp</item>
+    </style>
+</resources>

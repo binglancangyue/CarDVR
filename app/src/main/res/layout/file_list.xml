@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/file_list_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/file_list_view"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:divider="#555"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_item_selector" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_file"
+        android:id="@+id/no_file"
+        android:layout_gravity="center"
+        android:textColor="#FFF" />
+</FrameLayout>

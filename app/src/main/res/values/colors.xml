@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="colorTabItemPressed">#222</color>
+    <color name="colorListItemPressed">#666</color>
+    <color name="colorWindowListItemPressed">#555</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="color_transparent50">#000000</color>
+    <color name="colorBlack">#000000</color>
+
+    <!--透明-->
+    <color name="color_transparent95">#0D000000</color>
+    <color name="color_transparent90">#1A000000</color>
+    <color name="color_transparent85">#26000000</color>
+    <!--透白-->
+    <color name="color_transparent_w_95">#0DFFFFFF</color>
+    <color name="color_transparent_w_90">#1AFFFFFF</color>
+    <color name="color_transparent_w_85">#26FFFFFF</color>
+
+    <color name="colorBtnBG">#FF00A1D7</color>
+    <color name="colorBtnBGPress">#302D2D</color>
+</resources>
