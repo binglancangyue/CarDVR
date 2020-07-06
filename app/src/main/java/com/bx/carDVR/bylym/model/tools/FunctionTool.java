@@ -20,8 +20,8 @@ public class FunctionTool {
     private Context mContext;
 
     public FunctionTool() {
-        this.mContext = DvrApplication.getInstance();
-        audioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+//        this.mContext = DvrApplication.getInstance();
+        audioManager = (AudioManager) DvrApplication.getInstance().getSystemService(Context.AUDIO_SERVICE);
         mStorage = DvrApplication.getInstance().getSystemService(StorageManager.class);
     }
 
