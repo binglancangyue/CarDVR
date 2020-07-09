@@ -1,5 +1,6 @@
 package com.bx.carDVR;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -56,6 +57,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -114,9 +116,11 @@ public class DVRService extends Service {
     private Handler mainHandle;
     private DialogTool mDialogTool;
     private LocationManagerTool locationManagerTool;
+    public static final String CHANNEL_ID_STRING = "service_dvr";
 
     @Override
     public void onCreate() {
+//        startForeground();
         mStorageManager = (StorageManager) getSystemService(Context.STORAGE_SERVICE);
         mThread = Thread.currentThread();
         mHandler = new Handler();
@@ -157,6 +161,20 @@ public class DVRService extends Service {
         mSensorManager.registerListener(mSensorEventListener,
                 mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
                 SensorManager.SENSOR_DELAY_FASTEST);
+    }
+
+    @SuppressLint("NewApi")
+    private void startForeground() {
+        Log.d(LOG_TAG, "startForeground: ");
+        NotificationManager notificationManager =
+                (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID_STRING,
+                getString(R.string.app_name),
+                NotificationManager.IMPORTANCE_LOW);
+        notificationManager.createNotificationChannel(mChannel);
+        Notification notification = new Notification.Builder(getApplicationContext(),
+                CHANNEL_ID_STRING).build();
+        startForeground(1, notification);
     }
 
     @Override
@@ -297,8 +315,13 @@ public class DVRService extends Service {
         for (Recorder recorder : mRecorderList) {
             recorder.connectCamera();
         }
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startAutoRecordingIfNecessary();
+            }
+        }, 4000);
 
-        startAutoRecordingIfNecessary();
     }
 
     private void cameraShutdown() {
@@ -564,7 +587,6 @@ public class DVRService extends Service {
 //                mHandler.post(runnable);
 //            }
 //        }, 1000, 1000);
-
         for (int i = 0; i < mRecorderList.size(); i++) {
             final Recorder recorder = mRecorderList.get(i);
             final int idx = i;
@@ -578,17 +600,14 @@ public class DVRService extends Service {
                         if (!isAutoRecordingStarted) {
                             return;
                         }
-
                         if (counter > 0) {
                             counter--;
 
                             if (counter == timeInterval / 2) {
                                 cleanStorageSpace();
                             }
-
                             if (started) {
                                 mCurRecordingTimes[idx]++;
-                                Log.d("testa", "run:1 " + mCurRecordingTimes[idx]);
                             }
                         } else {
 //                            if (started && mRecordingCounter < INTERVAL) {
@@ -624,7 +643,7 @@ public class DVRService extends Service {
 
             mCurRecordingTimes[i] = 0;
         }
-
+        Log.d(LOG_TAG, "autoRecordingStart: 6");
         mRecordingCounter = 0;
         mCurRecordingTime = 0;
         isAutoRecordingStarted = true;

@@ -11,6 +11,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
+import com.bx.carDVR.DvrApplication;
 import com.bx.carDVR.bylym.video.Mp4ParseUtil;
 import com.bx.carDVR.bylym.video.VideoClip;
 
@@ -468,13 +469,14 @@ public class DVRTools {
     public void sendBroadcast(String msgId, String resultType, String path, boolean successful) {
         Intent intent = new Intent();
         intent.setAction("com.android.zqc.send");
+//        intent.setComponent(new ComponentName("com.zsi.powervideo",
+//                "com.zsi.powervideo.recevier.MyReceiver"));
+        intent.addFlags(0x01000000);
         intent.putExtra("ecarSendKey", resultType);
         intent.putExtra("result", successful);
         intent.putExtra("msgid", msgId);
         intent.putExtra("filePath", path);
-//        intent.setComponent(new ComponentName("com.zsi.powervideo",
-//                "com.zsi.powervideo.service.AwakenService"));
-        mContext.sendBroadcast(intent);
+        DvrApplication.getInstance().sendBroadcast(intent);
         Log.d(TAG, "sendBroadcastToActivity ");
     }
 

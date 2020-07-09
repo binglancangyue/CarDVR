@@ -14,11 +14,11 @@ android {
     buildTypes {
         release {
             // 开启混淆
-            minifyEnabled true
+            minifyEnabled false
             // Zipalign压缩优化
             zipAlignEnabled true
             // 移除无用的资源文件
-            shrinkResources true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
